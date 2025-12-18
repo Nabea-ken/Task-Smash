@@ -30,4 +30,34 @@
 5. Transferable skills
 6. New Frameworks and tech
 
+-Deployment
+python anywhere
+create a new app
+console
+    *mkvirtualenv myvirtualenv --python=/usr/bin/python3.10
+    *git clone <https://github.com/Nabea-ken/Task-Smash.git>
+    *cd Task-Smash
+    *pip install -r requirements.txt
+
+-Earlier one i created with python3.10 which caused an error on pythonanywhere
+  so i had to create another venv
+    *rm -rf myvirtualenv
+    *python3.13 -m venv Smash
+    *source Smash/bin/activate
+    *pip install -r requirements.txt
+
+-setup source code url
+
+-setup WSGI configuration file
+    import sys
+    path = '/home/knabz/Task-Smash'
+    if path not in sys.path:
+     sys.path.append(path)
+
+    from app import app as application
+
+setup virtualenv path
+refresh
+click link to view your web app
+
 [EOF]
