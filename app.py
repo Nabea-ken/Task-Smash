@@ -12,6 +12,7 @@ Scss(app)
 
 # Configure the extension configure SQLAlchemy 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///tasksmash.db" #Tells Flask which db to use 
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False #Disables a feature that signals the app every time a change is about to be made in the db- unnecessary overhead
 
 # creating the db itself- an obj of SQLAlchemy
 db = SQLAlchemy(app)
@@ -26,6 +27,10 @@ class MyTask(db.Model):
     #Object Representation - Controls how the object appears when printed - useful for debugging -Giving data back
     def __repr__(self) -> str:
         return f"Task {self.id}"
+
+#creating a db using a context manager
+with app.app_context():
+    db.create_all() 
 
 
 
@@ -85,8 +90,8 @@ def edit(id:int):
 
 # Runner and Debugger
 if __name__ == "__main__":
-    #creating a db using a context manager
+    """ #creating a db using a context manager
     with app.app_context():
-        db.create_all()
+        db.create_all() """
 
     app.run(debug=True)
