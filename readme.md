@@ -16,6 +16,7 @@
             *Testing
         -Create a Database Model
             -Create a Model-->a model is a row of data in our db, this will collect and hold data for each item
+            *flask SQLAlchemy configure the extension
         -HTTP Methods and functionality
             *Add a task to the db (POST)
             *Delete a task from the db
